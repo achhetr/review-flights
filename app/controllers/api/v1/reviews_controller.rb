@@ -12,7 +12,7 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    review = Review.find(params[:id])
+    review = Review.find(params[:slug])
 
     if(review.destroy) 
       head :no_content

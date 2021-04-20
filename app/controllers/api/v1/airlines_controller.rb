@@ -7,7 +7,7 @@ class Api::V1::AirlinesController < ApplicationController
   end
 
   def show
-    airline = Airline.find_by(slug: params[:id])
+    airline = Airline.find_by(slug: params[:slug])
     render json: AirlineSerializer.new(airline, options).serialized_json
   end
 
@@ -22,7 +22,7 @@ class Api::V1::AirlinesController < ApplicationController
   end
 
   def update
-    airline = Airline.find_by(slug: params[:id])
+    airline = Airline.find_by(slug: params[:slug])
     if(airline.update(airline_params))
       render json: AirlineSerializer.new(airline, options).serialized_json
     else
@@ -31,7 +31,7 @@ class Api::V1::AirlinesController < ApplicationController
   end
 
   def destroy
-    airline = Airline.find_by(slug: params[:id])
+    airline = Airline.find_by(slug: params[:slug])
     if(airline.destroy)
       head :no_content
     else
