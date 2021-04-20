@@ -48,7 +48,6 @@ const LinkWrapper = styled.div`
 `;
 
 const Airline = ({ name, image_url, average_score, slug, ...props }) => {
-	console.log(props.attributes);
 	return (
 		<Card>
 			<AirlineLogo>
